@@ -4,7 +4,7 @@ A 12-bit Segmented SAR ADC in TSMC 65nm LP CMOS
 
 1.	The circuit to be tested
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The cell view of the circuit to be tested is called 12b_ADC_TOP. Its schematic is printed out in the schematic file <https://github.com/uwrail/UW-RAIL/blob/master/AMS/AMS_KGD/ADC/SAR_ADC/tsmcN65/UW_65nm_SARADC_Apr_2019/UW_12b_SARADC_Hierarchical_Schematics_pdf/ADC_Layout_12b_ADC_Top_schematic.pdf> in the file folder UW_12b_SARADC_Hierarchical_Schematics_pdf. Its symbol is shown in Figure 1. 
+The cell view of the circuit to be tested is called 12b_ADC_TOP. Its schematic is printed out in the schematic file <https://github.com/uwidea/UW-IDEA_AnalogTestCases/blob/master/AMS_KGD/SAR_ADC/UW_65nm_SARADC_Apr_2019/UW_12b_SARADC_Hierarchical_Schematics_pdf/ADC_Layout_12b_ADC_Top_schematic.pdf> in the file folder UW_12b_SARADC_Hierarchical_Schematics_pdf. Its symbol is shown in Figure 1. 
 
 .. image :: images/image001.png
 Figure1. The symbol of the 12b_ADC_TOP. 
