@@ -1,6 +1,6 @@
-===============================================
+-----------------------------------------------
 A 12-bit Segmented SAR ADC in TSMC 65nm LP CMOS
-===============================================
+-----------------------------------------------
 
 
 The provided IP of a12-bit SAR ADC is presented by both cdl netlist and the pdf print of the hierarchical schematics. Users need the following tools, libraries, and agreement to import the cdl netlist and view the original design. If you do not have all of the following requirements. You can still view the design through the pdf print of the hierarchical schematics.
