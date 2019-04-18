@@ -1,5 +1,5 @@
 -----------------------------------------------
-65nm 12-bit 8-wire 8-level Wireline Transmitter
+65nm 12-Bit 8-Wire 8-Level Wireline Transmitter
 -----------------------------------------------
 
 
