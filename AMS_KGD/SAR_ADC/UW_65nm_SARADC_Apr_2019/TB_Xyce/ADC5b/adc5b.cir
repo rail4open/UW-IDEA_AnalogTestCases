@@ -49,7 +49,7 @@ m_u2_0 zn i vss vss nch l=60e-9 w=310e-9 m=1
 ** Cell name: GCAP
 ** View name: schematic
 .subckt GCAP neg pos
-c0 pos neg c1
+c0 pos neg 35f
 .ends GCAP
 ** End of subcircuit definition.
 
@@ -290,7 +290,7 @@ m_u1 net9 net11 vdd vdd pch l=60e-9 w=390e-9 m=1
 ** Cell name: nch_rvt_a2
 ** View name: schematic
 .subckt nch_rvt_a2 xb xd xg xs
-xm0 xd xg xs xb nch_mac l=240e-9 w=390e-9 multi=1   sigma=1
+m0 xd xg xs xb nch_mac l=240e-9 w=390e-9 m=1 
 .ends nch_rvt_a2
 ** End of subcircuit definition.
 
@@ -306,7 +306,7 @@ m0 xd xg xs xb nch l=60e-9 w=390e-9 m=1
 ** Cell name: pch_rvt_w2
 ** View name: schematic
 .subckt pch_rvt_w2 xb xd xg xs
-xm0 xd xg xs xb pch_mac l=60e-9 w=520e-9 multi=1   sigma=1
+m0 xd xg xs xb pch_mac l=60e-9 w=520e-9 m=1  
 .ends pch_rvt_w2
 ** End of subcircuit definition.
 
@@ -330,7 +330,7 @@ xnm1a<1> vss zn vin tl nch_rvt_a2
 xnm1a<0> vss zn vin tl nch_rvt_a2
 xi2 vss tl vss vss nch_rvt_w2
 xnm0 vss tl ck vss nch_rvt_w2
-xm0 zn vss zn vdd pch_mac l=60e-9 w=250e-9 multi=1  
+m0 zn vss zn vdd pch_mac l=60e-9 w=250e-9 m=1  
 .ends VCDP2
 ** End of subcircuit definition.
 
@@ -365,7 +365,7 @@ xi0<0> vdd net03 vin net03 pch_rvt_w1_schematic
 ** Cell name: pch_rvt_a2
 ** View name: schematic
 .subckt pch_rvt_a2 xb xd xg xs
-xm0 xd xg xs xb pch_mac l=240e-9 w=520e-9 multi=1   sigma=1
+m0 xd xg xs xb pch_mac l=240e-9 w=520e-9 m=1   
 .ends pch_rvt_a2
 ** End of subcircuit definition.
 
@@ -670,7 +670,8 @@ xi19 cmpn cmpp validn vdd vss NR2D0
 ** View name: schematic_flat
 xi3 avdd avss ck_adc net17 net12 BTSW_V1
 xi2 avdd avss ck_adc net16 net11 BTSW_V1
-v2 net16 0 SIN (0.36 0.84 0.1ns 0.1ns 54ns) **opposite phase
+
+v2 net16 0 SIN (0.36 -0.84 0.1ns 0.1ns 54ns)
 v0 net17 0 SIN (0.36 0.84 0.1ns 0.1ns 54ns)
 v1 net13 0 PULSE(0 1.2 2s 10ps 10ps 4.8ns 20ns)
 v8 l1 l0 1.2
@@ -679,6 +680,9 @@ v6 vrp vrn 1.2
 v5 vrn 0 0
 v4 net025 net07 1.2
 v3 net07 0 0
+vavdd avdd avss 1.2
+vavss avss 0 1.2
+
 xi6 net11 sw_n_n<3> sw_n_n<2> sw_n_n<1> sw_n_n<0> sw_n_p<3> sw_n_p<2> sw_n_p<1> sw_n_p<0> avdd vrn vrp avss CDAC4b
 xi5 net12 sw_p_n<3> sw_p_n<2> sw_p_n<1> sw_p_n<0> sw_p_p<3> sw_p_p<2> sw_p_p<1> sw_p_p<0> avdd vrn vrp avss CDAC4b
 xi9 net13 ck_adc avdd avss BUFFD2
@@ -689,8 +693,14 @@ r0 avdd net025 1
 xi45 ck_adc net026 cmpn cmpp cmp_ck dout<4> dout<3> dout<2> dout<1> dout<0> sw_n_n<3> sw_n_n<2> sw_n_n<1> sw_n_n<0> sw_n_p<3> sw_n_p<2> sw_n_p<1> sw_n_p<0> sw_p_n<3> sw_p_n<2> sw_p_n<1> sw_p_n<0> sw_p_p<3> sw_p_p<2> sw_p_p<1> sw_p_p<0> avdd avss SAR5LG
 
 .TRAN 0.1ns 64ns
-.TRAN  1ps 600ps
 .PRINT TRAN  V(dout<4>) V(dout<3>) V(dout<2>) V(dout<1>) V(dout<0>) 
+.PRINT HB
+.MEASURE TRAN avgi AVG I(vavdd)
+.MEASURE TRAN avgr AVG I(v6)
 
+.MODEL nch NMOS
+.MODEL pch PMOS
+.MODEL pch_mac PMOS
+.MODEL nch_mac NMOS
 ** enob = spectrumMeasurement(v("/OUT" ?result "tran") t 2.166e-08 2.582e-06 128 384600 1.969e+08 0 "Rectangular" 0 0 1 "enob")
 .END
