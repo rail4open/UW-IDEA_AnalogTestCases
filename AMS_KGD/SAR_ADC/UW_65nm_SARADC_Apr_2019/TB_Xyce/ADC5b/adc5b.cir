@@ -5,17 +5,10 @@
 ** Design view name: schematic_flat
 
 
-** Library name: rail_lib1
-** Cell name: nch_rvt_w1
-** View name: schematic
 .subckt nch_rvt_w1 xb xd xg xs
 m0 xd xg xs xb nch l=60e-9 w=460e-9 m=1
 .ends nch_rvt_w1
-** End of subcircuit definition.
 
-** Library name: rail65
-** Cell name: NSW0
-** View name: schematic
 .subckt NSW0 gt neg pos vdd vss
 xi1<4> vss neg gt pos nch_rvt_w1
 xi1<3> vss neg gt pos nch_rvt_w1
@@ -23,47 +16,27 @@ xi1<2> vss neg gt pos nch_rvt_w1
 xi1<1> vss neg gt pos nch_rvt_w1
 xi1<0> vss neg gt pos nch_rvt_w1
 .ends NSW0
-** End of subcircuit definition.
 
-** Library name: tcbn65lp
-** Cell name: INVD0
-** View name: schematic
 .subckt INVD0 i zn vdd vss
 m0 zn i vss vss nch l=60e-9 w=195e-9 m=1 
 m1 zn i vdd vdd pch l=60e-9 w=260e-9 m=1 
 .ends INVD0
-** End of subcircuit definition.
 
-** Library name: tcbn65lp
-** Cell name: CKND2
-** View name: schematic
 .subckt CKND2 i zn vdd vss
 m_u1_0 zn i vdd vdd pch l=60e-9 w=520e-9 m=1  
 m_u1_1 zn i vdd vdd pch l=60e-9 w=520e-9 m=1  
 m_u2_1 zn i vss vss nch l=60e-9 w=310e-9 m=1  
 m_u2_0 zn i vss vss nch l=60e-9 w=310e-9 m=1  
 .ends CKND2
-** End of subcircuit definition.
 
-** Library name: rail65
-** Cell name: GCAP
-** View name: schematic
 .subckt GCAP neg pos
 c0 pos neg 35f
 .ends GCAP
-** End of subcircuit definition.
 
-** Library name: rail_lib1
-** Cell name: pch_rvt_w1
-** View name: schematic
 .subckt pch_rvt_w1 xb xd xg xs
 m0 xd xg xs xb pch l=60e-9 w=620e-9 m=1  
 .ends pch_rvt_w1
-** End of subcircuit definition.
 
-** Library name: rail65
-** Cell name: CDC1
-** View name: schematic
 .subckt CDC1 a1 a2 cap vdd vo vss
 xi3<1> cap cap vo vdd pch_rvt_w1
 xi3<0> cap cap vo vdd pch_rvt_w1
@@ -74,29 +47,17 @@ xi0<0> vss vo vdd dl<0> nch_rvt_w1
 xi2<1> vss dl<1> a2 vss nch_rvt_w1
 xi2<0> vss dl<0> a2 vss nch_rvt_w1
 .ends CDC1
-** End of subcircuit definition.
 
-** Library name: tcbn65lp
-** Cell name: DCAP
-** View name: schematic
 .subckt DCAP vdd vss
 m_u2 net7 net5 vss vss nch l=60e-9 w=345e-9 m=1  
 m_u1 net5 net7 vdd vdd pch l=60e-9 w=485e-9 m=1  
 .ends DCAP
-** End of subcircuit definition.
 
-** Library name: tcbn65lp
-** Cell name: TIEH
-** View name: schematic
 .subckt TIEH z vdd vss
 m_u2 net7 net7 vss vss nch l=60e-9 w=410e-9 m=1  
 m_u1 z net7 vdd vdd pch l=60e-9 w=540e-9 m=1  
 .ends TIEH
-** End of subcircuit definition.
 
-** Library name: rail65
-** Cell name: PSW0
-** View name: schematic
 .subckt PSW0 gt neg pos vdd vss
 xi1<5> vdd pos gt neg pch_rvt_w1
 xi1<4> vdd pos gt neg pch_rvt_w1
@@ -105,20 +66,12 @@ xi1<2> vdd pos gt neg pch_rvt_w1
 xi1<1> vdd pos gt neg pch_rvt_w1
 xi1<0> vdd pos gt neg pch_rvt_w1
 .ends PSW0
-** End of subcircuit definition.
 
-** Library name: tcbn65lp
-** Cell name: TIEL
-** View name: schematic
 .subckt TIEL zn vdd vss
 m_u2 zn net5 vss vss nch l=60e-9 w=410e-9 m=1  
 m_u1 net5 net5 vdd vdd pch l=60e-9 w=540e-9 m=1  
 .ends TIEL
-** End of subcircuit definition.
 
-** Library name: rail_design
-** Cell name: BTSW_V1
-** View name: schematic
 .subckt BTSW_V1 vdd vss ck vin vout
 xpdn_sw0 ckn xvss capn vdd vss NSW0
 xtin_sw0 ckd upin capn vdd vss NSW0
@@ -138,42 +91,26 @@ xbvdd0 xvdd vdd vss TIEH
 xpup_sw0 ckd xvdd upin vdd vss PSW0
 xbvss0 xvss vdd vss TIEL
 .ends BTSW_V1
-** End of subcircuit definition.
 
-** Library name: tcbn65lp
-** Cell name: DCAP4
-** View name: schematic
 .subckt DCAP4 vdd vss
 mi4 vss net9 vss vss nch l=80e-9 w=330e-9 m=1  
 m_u2 net11 net9 vss vss nch l=60e-9 w=330e-9 m=1  
 mi3 vdd net11 vdd vdd pch l=80e-9 w=460e-9 m=1  
 m_u1 net9 net11 vdd vdd pch l=60e-9 w=460e-9 m=1  
 .ends DCAP4
-** End of subcircuit definition.
 
-** Library name: tcbn65lp
-** Cell name: BUFFD1
-** View name: schematic
 .subckt BUFFD1 i z vdd vss
 m0 net5 i vss vss nch l=60e-9 w=195e-9 m=1  
 m1 z net5 vss vss nch l=60e-9 w=390e-9 m=1  
 m2 net5 i vdd vdd pch l=60e-9 w=260e-9 m=1  
 m3 z net5 vdd vdd pch l=60e-9 w=520e-9 m=1  
 .ends BUFFD1
-** End of subcircuit definition.
 
-** Library name: tcbn65lp
-** Cell name: INVD1
-** View name: schematic
 .subckt INVD1 i zn vdd vss
 m0 zn i vss vss nch l=60e-9 w=390e-9 m=1  
 m1 zn i vdd vdd pch l=60e-9 w=520e-9 m=1  
 .ends INVD1
-** End of subcircuit definition.
 
-** Library name: rail_design
-** Cell name: SWCP01
-** View name: schematic
 .subckt SWCP01 vdd vss sw_n sw_p vrefp vrefn vtop0
 xaxl0 vdd vss DCAP4
 xdrv_n sw_n dr_n vdd vss BUFFD1
@@ -182,11 +119,7 @@ xsw_vrp dr_p vbtm vrefp vdd vss PSW0
 xsw_vrn dr_n vbtm vrefn vdd vss NSW0
 xi0 xvdd vdd vss TIEH
 .ends SWCP01
-** End of subcircuit definition.
 
-** Library name: rail_design
-** Cell name: SWCP04
-** View name: schematic
 .subckt SWCP04 vdd vss sw_n sw_p vrefp vrefn vtop0
 xbvss0 xvss vdd vss TIEL
 xaxl0 vdd vss DCAP4
@@ -195,11 +128,7 @@ xdrv_p sw_p dr_p vdd vss INVD1
 xsw_vrp dr_p vbtm vrefp vdd vss PSW0
 xsw_vrn dr_n vbtm vrefn vdd vss NSW0
 .ends SWCP04
-** End of subcircuit definition.
 
-** Library name: tcbn65lp
-** Cell name: DCAP16
-** View name: schematic
 .subckt DCAP16 vdd vss
 mi4 vss net11 vss vss nch l=690e-9 w=300e-9 m=1  
 mi8 vss net11 vss vss nch l=690e-9 w=300e-9 m=1  
@@ -210,11 +139,7 @@ mi6 vdd net5 vdd vdd pch l=690e-9 w=430e-9 m=1
 m_u1 net11 net5 vdd vdd pch l=60e-9 w=390e-9 m=1  
 mi5 vdd net5 vdd vdd pch l=690e-9 w=430e-9 m=1  
 .ends DCAP16
-** End of subcircuit definition.
 
-** Library name: tcbn65lp
-** Cell name: DCAP32
-** View name: schematic
 .subckt DCAP32 vdd vss
 mi38 vss net11 vss vss nch l=975e-9 w=300e-9 m=1  
 mi6 vss net11 vss vss nch l=975e-9 w=300e-9 m=1  
@@ -229,11 +154,7 @@ mi35 vdd net5 vdd vdd pch l=975e-9 w=430e-9 m=1
 mi32 vdd net5 vdd vdd pch l=975e-9 w=430e-9 m=1  
 mi26 vdd net5 vdd vdd pch l=975e-9 w=430e-9 m=1  
 .ends DCAP32
-** End of subcircuit definition.
 
-** Library name: rail_design
-** Cell name: CDAC4b
-** View name: schematic
 .subckt CDAC4b ctop sw_n<3> sw_n<2> sw_n<1> sw_n<0> sw_p<3> sw_p<2> sw_p<1> sw_p<0> vdd vrefn vrefp vss
 xi3 vdd vss sw_n<3> sw_p<3> vrefp vrefn ctop SWCP01
 xi0 vdd vss sw_n<0> sw_p<0> vrefp vrefn ctop SWCP01
@@ -245,11 +166,7 @@ xi6 net1 vdd vss TIEH
 xi9 net4 vdd vss TIEL
 xi11 vdd vss DCAP32
 .ends CDAC4b
-** End of subcircuit definition.
 
-** Library name: tcbn65lp
-** Cell name: BUFFD2
-** View name: schematic
 .subckt BUFFD2 i z vdd vss
 m0 z net11 vdd vdd pch l=60e-9 w=520e-9 m=1  
 m1 z net11 vdd vdd pch l=60e-9 w=520e-9 m=1  
@@ -258,11 +175,7 @@ m3 z net11 vss vss nch l=60e-9 w=390e-9 m=1
 m4 net11 i vss vss nch l=60e-9 w=390e-9 m=1  
 m5 z net11 vss vss nch l=60e-9 w=390e-9 m=1  
 .ends BUFFD2
-** End of subcircuit definition.
 
-** Library name: tcbn65lp
-** Cell name: CKND4
-** View name: schematic
 .subckt CKND4 i zn vdd vss
 m_u1_0 zn i vdd vdd pch l=60e-9 w=520e-9 m=1  
 m_u1_3 zn i vdd vdd pch l=60e-9 w=520e-9 m=1  
@@ -273,46 +186,26 @@ m_u2_3 zn i vss vss nch l=60e-9 w=310e-9 m=1
 m_u2_0 zn i vss vss nch l=60e-9 w=310e-9 m=1  
 m_u2_2 zn i vss vss nch l=60e-9 w=310e-9 m=1  
 .ends CKND4
-** End of subcircuit definition.
 
-** Library name: tcbn65lp
-** Cell name: DCAP8
-** View name: schematic
 .subckt DCAP8 vdd vss
 mi4 vss net9 vss vss nch l=880e-9 w=300e-9 m=1  
 m_u2 net11 net9 vss vss nch l=60e-9 w=300e-9 m=1  
 mi3 vdd net11 vdd vdd pch l=880e-9 w=430e-9 m=1  
 m_u1 net9 net11 vdd vdd pch l=60e-9 w=390e-9 m=1  
 .ends DCAP8
-** End of subcircuit definition.
 
-** Library name: rail65
-** Cell name: nch_rvt_a2
-** View name: schematic
 .subckt nch_rvt_a2 xb xd xg xs
 m0 xd xg xs xb nch_mac l=240e-9 w=390e-9 m=1 
 .ends nch_rvt_a2
-** End of subcircuit definition.
 
-** Library name: rail65
-** Cell name: nch_rvt_w2
-** View name: schematic
 .subckt nch_rvt_w2 xb xd xg xs
 m0 xd xg xs xb nch l=60e-9 w=390e-9 m=1  
 .ends nch_rvt_w2
-** End of subcircuit definition.
 
-** Library name: rail65
-** Cell name: pch_rvt_w2
-** View name: schematic
 .subckt pch_rvt_w2 xb xd xg xs
 m0 xd xg xs xb pch_mac l=60e-9 w=520e-9 m=1  
 .ends pch_rvt_w2
-** End of subcircuit definition.
 
-** Library name: rail65
-** Cell name: VCDC2
-** View name: schematic
 .subckt VCDC2 ck tl vdd vin vss zn
 xnm1a<1> vss zn vin tl nch_rvt_a2
 xnm1a<0> vss zn vin tl nch_rvt_a2
@@ -320,11 +213,7 @@ xi2 vss tl vss vss nch_rvt_w2
 xnm0 vss tl ck vss nch_rvt_w2
 xpm0 vdd zn ck vdd pch_rvt_w2
 .ends VCDC2
-** End of subcircuit definition.
 
-** Library name: rail65
-** Cell name: VCDP2
-** View name: schematic
 .subckt VCDP2 ck tl vdd vin vss zn
 xnm1a<1> vss zn vin tl nch_rvt_a2
 xnm1a<0> vss zn vin tl nch_rvt_a2
@@ -332,46 +221,26 @@ xi2 vss tl vss vss nch_rvt_w2
 xnm0 vss tl ck vss nch_rvt_w2
 m0 zn vss zn vdd pch_mac l=60e-9 w=250e-9 m=1  
 .ends VCDP2
-** End of subcircuit definition.
 
-** Library name: rail65
-** Cell name: pch_rvt_w1
-** View name: schematic
 .subckt pch_rvt_w1_schematic xb xd xg xs
 m0 xd xg xs xb pch l=60e-9 w=620e-9 m=1 
 .ends pch_rvt_w1_schematic
-** End of subcircuit definition.
 
-** Library name: rail65
-** Cell name: PCAP
-** View name: schematic
 .subckt PCAP ct vdd vin vss
 xi1 ct net03 vdd vss INVD1
 xi0 vdd net03 vin net03 pch_rvt_w1_schematic
 .ends PCAP
-** End of subcircuit definition.
 
-** Library name: rail65
-** Cell name: PCAP2
-** View name: schematic
 .subckt PCAP2 ct vdd vin vss
 xi1 ct net03 vdd vss INVD1
 xi0<1> vdd net03 vin net03 pch_rvt_w1_schematic
 xi0<0> vdd net03 vin net03 pch_rvt_w1_schematic
 .ends PCAP2
-** End of subcircuit definition.
 
-** Library name: rail65
-** Cell name: pch_rvt_a2
-** View name: schematic
 .subckt pch_rvt_a2 xb xd xg xs
 m0 xd xg xs xb pch_mac l=240e-9 w=520e-9 m=1   
 .ends pch_rvt_a2
-** End of subcircuit definition.
 
-** Library name: rail65
-** Cell name: MSNR
-** View name: schematic
 .subckt MSNR ain din vdd vss zn
 xi2 vdd net19 ain vdd pch_rvt_a2
 xi3 vss zn ain vss nch_rvt_a2
@@ -380,11 +249,7 @@ xi6<0> vss zn din vss nch_rvt_w2
 xi5<1> vdd zn din net19 pch_rvt_w2
 xi5<0> vdd zn din net19 pch_rvt_w2
 .ends MSNR
-** End of subcircuit definition.
 
-** Library name: rail_design
-** Cell name: VCMP_PHO
-** View name: schematic
 .subckt VCMP_PHO vdd vss vipc vinc clk calp<1> calp<0> caln<1> caln<0> cmpp cmpn
 xckdrv0 clk ckn vdd vss CKND4
 xaxr0 vdd vss DCAP8
@@ -402,11 +267,7 @@ xstg1_p5 calp<1> vdd out1n vss PCAP2
 xstg2_n0 out1p cmpp vdd vss cmpn MSNR
 xstg2_p0 out1n cmpn vdd vss cmpp MSNR
 .ends VCMP_PHO
-** End of subcircuit definition.
 
-** Library name: tcbn65lp
-** Cell name: DFCNQD1
-** View name: schematic
 .subckt DFCNQD1 d cp cdn q vdd vss
 mi4 net53 net5 vss vss nch l=60e-9 w=350e-9 m=1  
 m0 net81 net51 net9 vss nch l=60e-9 w=390e-9 m=1  
@@ -437,11 +298,7 @@ mi45 net97 net5 net101 vdd pch l=60e-9 w=150e-9 m=1
 mi7 net100 net63 vdd vdd pch l=60e-9 w=460e-9 m=1  
 m11 net81 cdn vdd vdd pch l=60e-9 w=400e-9 m=1  
 .ends DFCNQD1
-** End of subcircuit definition.
 
-** Library name: tcbn65lp
-** Cell name: DFCND1
-** View name: schematic
 .subckt DFCND1 d cp cdn q qn vdd vss
 m0 qn net33 vss vss nch l=60e-9 w=390e-9 m=1  
 mi4 net53 net5 vss vss nch l=60e-9 w=350e-9 m=1  
@@ -474,11 +331,7 @@ mi45 net25 net5 net72 vdd pch l=60e-9 w=150e-9 m=1
 mi7 net104 net67 vdd vdd pch l=60e-9 w=460e-9 m=1  
 m15 net95 cdn vdd vdd pch l=60e-9 w=365e-9 m=1  
 .ends DFCND1
-** End of subcircuit definition.
 
-** Library name: tcbn65lp
-** Cell name: BUFFD4
-** View name: schematic
 .subckt BUFFD4 i z vdd vss
 m0 z net11 vdd vdd pch l=60e-9 w=520e-9 m=1  
 m1 net11 i vdd vdd pch l=60e-9 w=520e-9 m=1  
@@ -493,11 +346,7 @@ m9 net11 i vss vss nch l=60e-9 w=390e-9 m=1
 m10 z net11 vss vss nch l=60e-9 w=390e-9 m=1  
 m11 net11 i vss vss nch l=60e-9 w=390e-9 m=1  
 .ends BUFFD4
-** End of subcircuit definition.
 
-** Library name: tcbn65lp
-** Cell name: OR3D1
-** View name: schematic
 .subckt OR3D1 a1 a2 a3 z vdd vss
 m0 net13 a1 vdd vdd pch l=60e-9 w=520e-9 m=1  
 m1 net9 a3 net1 vdd pch l=60e-9 w=520e-9 m=1  
@@ -508,11 +357,7 @@ m5 net9 a1 vss vss nch l=60e-9 w=195e-9 m=1
 m6 z net9 vss vss nch l=60e-9 w=390e-9 m=1  
 m7 net9 a3 vss vss nch l=60e-9 w=195e-9 m=1  
 .ends OR3D1
-** End of subcircuit definition.
 
-** Library name: tcbn65lp
-** Cell name: DFCNQD2
-** View name: schematic
 .subckt DFCNQD2 d cp cdn q vdd vss
 m0 net79 cp vss vss nch l=60e-9 w=195e-9 m=1  
 m1 net61 cdn vss vss nch l=60e-9 w=190e-9 m=1  
@@ -549,11 +394,7 @@ mi45 net25 net79 net125 vdd pch l=60e-9 w=150e-9 m=1
 m17 net11 cdn vdd vdd pch l=60e-9 w=440e-9 m=1  
 mi7 net124 net83 vdd vdd pch l=60e-9 w=460e-9 m=1  
 .ends DFCNQD2
-** End of subcircuit definition.
 
-** Library name: tcbn65lp
-** Cell name: DFQD1
-** View name: schematic
 .subckt DFQD1 d cp q vdd vss
 m0 net7 net13 vss vss nch l=60e-9 w=390e-9 m=1  
 mi4 net24 net63 vss vss nch l=60e-9 w=370e-9 m=1  
@@ -580,22 +421,14 @@ mi51 net72 net7 vdd vdd pch l=60e-9 w=150e-9 m=1
 mi45 net67 net63 net56 vdd pch l=60e-9 w=150e-9 m=1  
 mi7 net49 net25 vdd vdd pch l=60e-9 w=460e-9 m=1  
 .ends DFQD1
-** End of subcircuit definition.
 
-** Library name: tcbn65lp
-** Cell name: INVD2
-** View name: schematic
 .subckt INVD2 i zn vdd vss
 m0 zn i vss vss nch l=60e-9 w=390e-9 m=1  
 m1 zn i vss vss nch l=60e-9 w=390e-9 m=1  
 m2 zn i vdd vdd pch l=60e-9 w=520e-9 m=1  
 m3 zn i vdd vdd pch l=60e-9 w=520e-9 m=1  
 .ends INVD2
-** End of subcircuit definition.
 
-** Library name: tcbn65lp
-** Cell name: DEL005
-** View name: schematic
 .subckt DEL005 i z vdd vss
 m0 z net11 vdd vdd pch l=60e-9 w=520e-9 m=1  
 mi3 net5 i vdd vdd pch l=60e-9 w=520e-9 m=1  
@@ -604,22 +437,14 @@ mi13 net5 i vss vss nch l=60e-9 w=390e-9 m=1
 m1 z net11 vss vss nch l=60e-9 w=390e-9 m=1  
 mi12 net11 i net5 vss nch l=60e-9 w=390e-9 m=1  
 .ends DEL005
-** End of subcircuit definition.
 
-** Library name: tcbn65lp
-** Cell name: NR2D0
-** View name: schematic
 .subckt NR2D0 a1 a2 zn vdd vss
 m0 zn a2 vss vss nch l=60e-9 w=195e-9 m=1 
 m1 zn a1 vss vss nch l=60e-9 w=195e-9 m=1  
 m2 net13 a2 vdd vdd pch l=60e-9 w=260e-9 m=1  
 m3 zn a1 net13 vdd pch l=60e-9 w=260e-9 m=1  
 .ends NR2D0
-** End of subcircuit definition.
 
-** Library name: rail_design
-** Cell name: SAR5LG
-** View name: schematic
 .subckt SAR5LG ck_adc ck_out cmpn cmpp cmp_ck dout<4> dout<3> dout<2> dout<1> dout<0> sw_n_n<3> sw_n_n<2> sw_n_n<1> sw_n_n<0> sw_n_p<3> sw_n_p<2> sw_n_p<1> sw_n_p<0> sw_p_n<3> sw_p_n<2> sw_p_n<1> sw_p_n<0> sw_p_p<3> sw_p_p<2> sw_p_p<1> sw_p_p<0> vdd vss
 xi16 l1 vdd vss TIEH
 xi58 clk2 valid rst clk3 vdd vss DFCNQD1
@@ -663,11 +488,7 @@ xi2<0> vdd vss DCAP4
 xi24 cmpp cmpn validn vdd vss NR2D0
 xi19 cmpn cmpp validn vdd vss NR2D0
 .ends SAR5LG
-** End of subcircuit definition.
 
-** Library name: rail_trail
-** Cell name: tb_adc5b
-** View name: schematic_flat
 xi3 avdd avss ck_adc net17 net12 BTSW_V1
 xi2 avdd avss ck_adc net16 net11 BTSW_V1
 
